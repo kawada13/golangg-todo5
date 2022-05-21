@@ -38,7 +38,7 @@ func (u *User) CreateUser() (err error) {
 	return err
 }
 
-// ユーザー取得
+// ユーザー取得(一人)
 func GetUser(id int) (user User, err error) {
 	user = User{}
 	cmd := `select id, uuid, name, email,password,created_at from users where id = ?`

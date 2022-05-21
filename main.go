@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"golang_udemy/todo5/app/models"
+	"log"
 )
 
 func main() {
@@ -51,8 +52,17 @@ func main() {
 	// fmt.Println(models.Db)
 
 	//ユーザー取得
-	u, _ := models.GetUser(3)
-	fmt.Println(u)
+	// u, _ := models.GetUser(3)
+	// fmt.Println(u)
 	// Todo作成
-	u.CreateTodo("こんばんは")
+	// u.CreateTodo("こんばんは")
+
+	// todo取得
+	t, err := models.GetTodo(2)
+
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	fmt.Println(t)
 }
