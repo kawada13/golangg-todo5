@@ -1,6 +1,7 @@
 package config
 
 import (
+	"golang_udemy/todo5/utils"
 	"log"
 
 	"gopkg.in/go-ini/ini.v1"
@@ -18,6 +19,7 @@ var Config ConfigList
 // main関数が呼ばれる前に実行される
 func init() {
 	LoadConfig()
+	utils.LoggingSettings(Config.LogFile)
 }
 
 func LoadConfig() {
