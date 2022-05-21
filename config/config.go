@@ -18,7 +18,9 @@ var Config ConfigList
 
 // main関数が呼ばれる前に実行される
 func init() {
+	// configの読み込み
 	LoadConfig()
+	// ログの設定
 	utils.LoggingSettings(Config.LogFile)
 }
 
