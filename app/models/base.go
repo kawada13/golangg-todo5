@@ -19,6 +19,7 @@ var err error
 
 const (
 	tableNameUser = "users"
+	tableNameTodo = "todos"
 )
 
 // main.goのmain関数が呼び出される前に呼び出されるメソッド
@@ -30,7 +31,7 @@ func init() {
 		log.Fatalln(err)
 	}
 
-	// テーブル作成コマンドを作成
+	// テーブル作成コマンドを作成(ユーザー)
 	cmdU := fmt.Sprintf(`CREATE TABLE IF NOT EXISTS %s(
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
 		uuid STRING NOT NULL UNIQUE,
@@ -39,10 +40,23 @@ func init() {
 		password STRING,
 		created_at DATETIME)`, tableNameUser)
 
-	// テーブル作成を実行
-	_, err := Db.Exec(cmdU)
-	if err != nil {
-		log.Fatalln(err)
+	// ユーザーテーブル作成を実行
+	_, errU := Db.Exec(cmdU)
+	if errU != nil {
+		log.Fatalln(errU)
+	}
+
+	// テーブル作成コマンドを作成(todo)
+	cmdT := fmt.Sprintf(`CREATE TABLE IF NOT EXISTS %s(
+		id INTEGER PRIMARY KEY AUTOINCREMENT,
+		content TEXT,
+		user_id INTEGER,
+		created_at DATETIME)`, tableNameTodo)
+
+	// ユーザーテーブル作成を実行
+	_, errT := Db.Exec(cmdT)
+	if errT != nil {
+		log.Fatalln(errT)
 	}
 }
 

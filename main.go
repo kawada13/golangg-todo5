@@ -39,12 +39,14 @@ func main() {
 	// ユーザー削除
 	// まずは対象ユーザーを取得
 
-	u, _ := models.GetUser(2)
-	fmt.Println(u)
+	// u, _ := models.GetUser(2)
+	// fmt.Println(u)
 
 	// ユーザーの削除
-	u.DeleteUser()
+	// u.DeleteUser()
 
 	// 実際に削除されているのかを確認
-	fmt.Println(u)
+	// fmt.Println(u)
+
+	fmt.Println(models.Db)
 }
