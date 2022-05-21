@@ -48,5 +48,11 @@ func main() {
 	// 実際に削除されているのかを確認
 	// fmt.Println(u)
 
-	fmt.Println(models.Db)
+	// fmt.Println(models.Db)
+
+	//ユーザー取得
+	u, _ := models.GetUser(3)
+	fmt.Println(u)
+	// Todo作成
+	u.CreateTodo("こんばんは")
 }
