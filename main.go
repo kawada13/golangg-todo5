@@ -13,5 +13,14 @@ func main() {
 
 	// log.Println("test")
 
-	fmt.Println(models.Db)
+	// fmt.Println(models.Db)
+
+	// ユーザー作成
+	u := &models.User{}
+	u.Name = "test"
+	u.Email = "test@test.com"
+	u.PassWord = "testtest"
+	fmt.Println(u)
+
+	u.CreateUser()
 }

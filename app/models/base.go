@@ -1,12 +1,13 @@
 package models
 
 import (
+	"crypto/sha1"
 	"database/sql"
 	"fmt"
 	"golang_udemy/todo5/config"
 	"log"
 
-	// sqllite3のドライバーを手動でインストール
+	"github.com/google/uuid"
 	_ "github.com/mattn/go-sqlite3"
 )
 
@@ -43,4 +44,17 @@ func init() {
 	if err != nil {
 		log.Fatalln(err)
 	}
+}
+
+// uuidパッケージを使って、uuidを作成
+func createUUID() (uuidobj uuid.UUID) {
+	uuidobj, _ = uuid.NewUUID()
+	return uuidobj
+}
+
+// ハッシュ値を作成(パスワード用)
+func Encypt(plaintext string) (cryptext string) {
+	cryptext = fmt.Sprintf("%x", sha1.Sum([]byte(plaintext)))
+
+	return cryptext
 }
