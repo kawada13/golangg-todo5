@@ -23,6 +23,17 @@ func main() {
 	// fmt.Println(u)
 	// u.CreateUser()
 
-	u, _ := models.GetUser(1)
+	//ユーザー取得
+	u, _ := models.GetUser(2)
 	fmt.Println(u)
+
+	// ユーザー更新
+	u.Name = "test1change"
+	u.Email = "test1@example.com"
+
+	u.UpdateUser()
+
+	u1, _ := models.GetUser(2)
+	fmt.Println(u1)
+
 }
