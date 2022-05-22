@@ -58,11 +58,22 @@ func main() {
 	// u.CreateTodo("こんばんは")
 
 	// todo取得
-	t, err := models.GetTodo(2)
+	// t, err := models.GetTodo(2)
 
-	if err != nil {
-		log.Fatalln(err)
+	// if err != nil {
+	// 	log.Fatalln(err)
+	// }
+
+	// fmt.Println(t)
+
+	// todo取得(複数)
+
+	todos, e := models.GetTodos()
+	if e != nil {
+		log.Fatalln(e)
 	}
 
-	fmt.Println(t)
+	for _, v := range todos {
+		fmt.Println(v)
+	}
 }
